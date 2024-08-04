@@ -52,11 +52,7 @@ class User(AbstractBaseUser):
         upload_to="user_avatar",
         null=True,
         blank=True,
-    )
-    cover_pic = models.ImageField(
-        upload_to="user_cover_pic",
-        null=True,
-        blank=True,
+        default="user_avatar/default/default.jpg",
     )
     GENDER_CHOICES = [
         ("M", "Male"),
