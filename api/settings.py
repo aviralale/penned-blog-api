@@ -164,18 +164,18 @@ DJOSER = {
     "PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND": True,
     "TOKEN_MODEL": None,  #!TO DELETE USER
     "SERIALIZERS": {
-        "user_create": "account.serializers.UserCreateSerializer",
-        "user": "account.serializers.UserSerializer",
+        "user_create": "accounts.serializers.UserCreateSerializer",
+        "user": "accounts.serializers.UserSerializer",
         "user_delete": "djoser.serializers.UserDeleteSerializer",
-        "current_user": "account.serializers.UserSerializer",
+        "current_user": "accounts.serializers.UserSerializer",
     },
     "EMAIL": {
-        "activation": "account.email.ActivationEmail",
-        "confirmation": "account.email.ConfirmationEmail",
-        "password_reset": "account.email.PasswordResetEmail",
-        "password_changed_confirmation": "account.email.PasswordChangedConfirmationEmail",
-        "username_changed_confirmation": "account.email.UsernameChangedConfirmationEmail",
-        "username_reset": "account.email.UsernameResetEmail",
+        "activation": "accounts.email.ActivationEmail",
+        "confirmation": "accounts.email.ConfirmationEmail",
+        "password_reset": "accounts.email.PasswordResetEmail",
+        "password_changed_confirmation": "accounts.email.PasswordChangedConfirmationEmail",
+        "username_changed_confirmation": "accounts.email.UsernameChangedConfirmationEmail",
+        "username_reset": "accounts.email.UsernameResetEmail",
     },
 }
 
@@ -185,7 +185,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = env.list("CORS_ALLOW_HEADERS")
 
 # *USER MODEL
-AUTH_USER_MODEL = "account.User"
+AUTH_USER_MODEL = "accounts.User"
 
 # EMAIL CONF
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

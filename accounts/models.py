@@ -66,7 +66,6 @@ class User(AbstractBaseUser):
     is_superuser = models.BooleanField(default=False)
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES, null=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
