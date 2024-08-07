@@ -1,5 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import (
+    BaseUserManager,
+    AbstractBaseUser,
+    PermissionsMixin,
+)
 from datetime import timezone
 
 
@@ -40,7 +44,7 @@ class UserManager(BaseUserManager):
         )
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         verbose_name="email",
         max_length=255,
@@ -58,6 +62,7 @@ class User(AbstractBaseUser):
         ("M", "Male"),
         ("F", "Female"),
         ("O", "Other"),
+        ("R", "Rather not to say"),
     ]
     bio = models.TextField(max_length=103, null=True)
     is_active = models.BooleanField(default=True)
