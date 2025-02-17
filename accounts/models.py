@@ -3,7 +3,7 @@ from django.db import models
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, username, email, password=None, **extra_fields):
+    def create_user(self, username, email, name='', bio='', password=None, **extra_fields):
         """
         Creates and saves a User with the given username, email, and password.
         """
@@ -13,12 +13,12 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address.')
 
         email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **extra_fields)
+        user = self.model(username=username, email=email, name = name, bio = bio, **extra_fields)
         user.set_password(password)  # Hash the password
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, email, password=None, **extra_fields):
+    def create_superuser(self, username,name,bio, email, password=None, **extra_fields):
         """
         Creates and saves a superuser with the given username, email, and password.
         """
@@ -31,7 +31,7 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self.create_user(username=username, email=email, password=password, **extra_fields)
+        return self.create_user(username=username, name=name, bio=bio, email=email, password=password, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):

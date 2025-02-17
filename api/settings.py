@@ -133,7 +133,12 @@ SIMPLE_JWT = {
 DJOSER = {
     'LOGIN_FIELD': 'username', 
     'USER_CREATE_PASSWORD_RETYPE': True,
-    'SERIALIZERS': {},
+    'SERIALIZERS': {
+        'user_create': 'accounts.serializers.UserCreateSerializer',
+        'user': 'accounts.serializers.UserSerializer',
+        'current_user': 'accounts.serializers.UserSerializer',
+        
+    },
 }
 
 MEDIA_URL = '/media/'
